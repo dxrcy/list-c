@@ -1,22 +1,29 @@
 #include "list.c"
 
-mklist(string, char)
+typedef struct string {
+    char* items;
+    int len;
+    int cap;
+} string;
 
-    int main() {
-  string list = string_from("abcdef", 6);
+string string_new(int cap) {
+    string list = {.len = 0, .cap = cap, .items = malloc(cap * sizeof(char))};
+    if (list.items == NULL) {
+        perror("malloc failed.\n");
+        exit(EXIT_FAILURE);
+    }
+    return list;
+}
 
-  for (int i = 0; i < list.len; i++) {
-    printf("%c", list.items[i]);
-  }
-  printf("\n");
+/* void string_push(string* list, char item) { */
+/*     // */
+/* } */
+/*  */
+int main() {
+    char* a = malloc(sizeof(char) * 20);
 
-  char ch = string_remove(&list, 2);
-  printf("%c\n", ch);
+    char** b = &a;
 
-  for (int i = 0; i < list.len; i++) {
-    printf("%c", list.items[i]);
-  }
-  printf("\n");
-
-  free(list.items);
+    /* *a = 123; */
+    printf("%c\n", a[2]);
 }

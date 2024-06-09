@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define cap_increase(x) (x + 10)
+#define cap_increase(x) (x * 2)
 
 #define mklist(__list, __item)                                               \
     typedef struct __list {                                                  \
@@ -74,4 +74,3 @@
         list->len--;                                                         \
         return item;                                                         \
     }
-
